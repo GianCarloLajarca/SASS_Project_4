@@ -1,0 +1,127 @@
+@use '../abstract' as *;
+@use '../base' as *;
+@use '../component' as *;
+@use '../layout' as *;
+
+.banner {
+    background-color: $clr-light;
+    color: rgba($clr-light,0.7);
+    margin-top: -1rem;
+    padding-bottom: 4rem;
+    &__top {
+        margin-bottom: 3rem;
+        button.member {
+            width: 100%;
+            padding: 1.2rem 1rem;
+            border: 1px solid $clr-accent;
+            background: transparent;
+            transition: .5s ease;
+            color:  $clr-light;
+            background-color: $clr-accent;
+            border-radius: 5rem;
+            @include mediaQuery {
+                width: 20%;
+            }
+            &:hover {
+                background: $clr-dark;
+                color: $clr-light;
+            }
+        }
+
+        button.learn {
+            width: 100%;
+            padding: 1.2rem 1rem;
+            border: 1px solid $clr-accent;
+            background: transparent;
+            transition: .5s ease;
+            color:  $clr-dark;
+            border-radius: 5rem;
+            @include mediaQuery {
+                width: 20%;
+            }
+            &:hover {
+                background: $clr-dark;
+                color: $clr-light;
+            }
+        }
+
+        h1 {
+            color: $clr-dark;
+        }
+
+        h3 {
+            color: $clr-dark;
+            font-size: 2rem;
+        }
+
+        img {
+            @include imgCover(400px, 100%);
+        }
+    }
+
+    &__bottom {
+        @include mediaQuery {
+            @include unevenGrid(1fr 2fr, 5rem);
+        }
+
+        p {
+            text-align: justify;
+            margin: 2rem;
+            color: $clr-dark;
+        }
+        
+    }
+
+}
+
+.choose {
+    margin-top: 3rem;
+    border-radius: 5rem;
+    &__wrapper {
+        color: $clr-light;
+
+   @include grid (1fr 1fr 1fr 1fr, 5rem);
+}
+    &__card {
+        h3,h2,p {
+            text-align: center;
+        }
+        
+        p {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.chooseUs {
+    border-radius: 5rem;
+    padding: 2rem;
+    
+    h2 {
+        text-align: center;
+    }
+    p {
+        text-align: center
+    }
+
+    &__wrapper {
+        gap: 10rem;
+        @include grid(1fr);
+
+        @include mediaQuery {
+            @include grid(1fr 1fr);
+         }
+
+         text-align: center;
+    }
+
+    &__amenities {
+        i {
+            background-color: $clr-accent;
+            border-radius: 50%;
+            border: 1px solid $clr-light;
+            padding: 10px;
+        }
+    }
+   
+}
