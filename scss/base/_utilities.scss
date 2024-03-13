@@ -3,6 +3,10 @@
 $colors: (
     "light" : $clr-light,
     "dark" : $clr-dark,
+    "darkblue" : $clr-dark-blue,
+    "lightblue" : $clr-light-blue,
+    "accent" : $clr-accent,
+
 );
 
 @each $key, $val in $colors {
@@ -104,19 +108,19 @@ $align: (
 }
 
 // OWN UTILITIES START
-$weights: bold, bolder;
-@each $weight in $weights {
-    .weight-#{$weight} {
-        font-weight: #{$weight};
-    }
-}
+// $weights: bold, bolder;
+// @each $weight in $weights {
+//     .weight-#{$weight} {
+//         font-weight: #{$weight};
+//     }
+// }
 
-$decorations: underline, dashed, dotted, double, overline, wavy, solid,;
-@each $decoration in $decorations {
-    .decoration-#{$decoration} {
-        text-decoration: #{$decoration};
-    }
-}
+// $decorations: underline, dashed, dotted, double, overline, wavy, solid,;
+// @each $decoration in $decorations {
+//     .decoration-#{$decoration} {
+//         text-decoration: #{$decoration};
+//     }
+// }
 
 // OWN UTILITIES END
 

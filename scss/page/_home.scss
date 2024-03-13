@@ -2,13 +2,17 @@
 @use '../base' as *;
 @use '../component' as *;
 @use '../layout' as *;
+@use '../vendor' as *;
 
 .banner {
     background-color: $clr-light;
     color: rgba($clr-light,0.7);
-    margin-top: -1rem;
-    padding-bottom: 4rem;
+    margin-top: 3rem;
+    padding-bottom: 7rem;
     &__top {
+        @include mediaQuery {
+            @include flex (space-around, flex-end);
+        }
         margin-bottom: 3rem;
         button.member {
             width: 100%;
@@ -17,10 +21,12 @@
             background: transparent;
             transition: .5s ease;
             color:  $clr-light;
+            text-transform: uppercase;
             background-color: $clr-accent;
             border-radius: 5rem;
             @include mediaQuery {
-                width: 20%;
+                width: 15rem;
+                height: 5rem;
             }
             &:hover {
                 background: $clr-dark;
@@ -34,10 +40,12 @@
             border: 1px solid $clr-accent;
             background: transparent;
             transition: .5s ease;
+            text-transform: uppercase;
             color:  $clr-dark;
             border-radius: 5rem;
             @include mediaQuery {
-                width: 20%;
+                width: 15rem;
+                height: 5rem;
             }
             &:hover {
                 background: $clr-dark;
@@ -69,6 +77,10 @@
             margin: 2rem;
             color: $clr-dark;
         }
+
+        img {
+            border-radius: 3rem;
+        }
         
     }
 
@@ -78,23 +90,48 @@
     margin-top: 3rem;
     border-radius: 5rem;
     &__wrapper {
+        @include mediaQuery {
+           @include flex(space-around,center); 
+        }
         color: $clr-light;
-
-   @include grid (1fr 1fr 1fr 1fr, 5rem);
+        @include grid (1fr 1fr 1fr 1fr, 8rem);
 }
+
     &__card {
+        padding: 2rem;
         h3,h2,p {
             text-align: center;
+            @include mediaQuery {
+                text-align: justify;
+            }
         }
+
+        h2 {
+            @include mediaQuery {
+                margin-bottom: -1rem;
+                font-size: clamp(2.2rem, 6vw, 3rem);
+            }
+        }
+
+        h3 {
+            @include mediaQuery {
+                font-size: 1.5rem;
+                margin-top: 1rem;
+            }
+        }
+
         
         p {
+            @include mediaQuery {
+                font-size: 1.5rem;
+                margin-top: -1rem;
+            }
             font-size: 1.5rem;
         }
     }
 }
 
 .chooseUs {
-    border-radius: 5rem;
     padding: 2rem;
     
     h2 {
@@ -105,17 +142,52 @@
     }
 
     &__wrapper {
-        gap: 10rem;
-        @include grid(1fr);
+        @include flex;
+        border-radius: 5rem;
+        gap: 3rem;
+        border-radius: 5rem;
+        @include grid(1fr, 6rem);
 
-        @include mediaQuery {
-            @include grid(1fr 1fr);
-         }
-
-         text-align: center;
+        @include flex(flex-end,center);
+        text-align: center;
+        img {
+            @include mediaQuery {
+               border-radius: 5rem;  
+              @include imgCover (700px, 100%); 
+              transform: translateX(21%);
+            }
+              
+            }
+        
     }
 
     &__amenities {
+
+        @include mediaQuery {
+          margin-left: 2rem;  
+          @include flex;
+        }
+        
+        border-radius: 5rem;
+        @include grid(1fr, 6rem);
+        margin-left: 60rem;
+        @include mediaQuery {
+            @include grid(2);
+            grid-gap: 4rem;
+         }
+        @include grid(1fr, 6rem);
+         
+         text-align: center;
+
+    }
+    
+    &__cards {
+        @include mediaQuery {
+            @include grid(2);
+        }
+    }
+
+    &__amenity {
         i {
             background-color: $clr-accent;
             border-radius: 50%;
@@ -125,3 +197,228 @@
     }
    
 }
+
+.trainers {
+    h2 {
+        text-align: center;
+        font-weight: bolder;
+    }
+
+    h3 {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    &__wrapper{
+        @include mediaQuery {
+            @include flex(center,center);
+        }
+
+        @include grid(1fr, 5rem);
+    }
+
+    &__card {
+        border-radius: 3rem;
+        overflow: hidden;
+        position: relative;
+        // width: 120px;
+        // height: 120px;
+        img {
+            @include imgCover(100%);
+            aspect-ratio: 1/1;
+            transition: ease-in-out .5s;
+        }
+
+        h3 {
+            @include mediaQuery {
+                font-size: 2rem;
+            }
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: $clr-primary;
+            font-size: 2.5rem;
+            
+        }
+
+        &:hover img {
+            transform: scale(1.2);
+        }   
+    }
+    
+
+}
+
+.testimonials {
+    margin-top: 4rem;
+    border-radius: 5rem;
+   
+    &__wrapper {
+        @include mediaQuery {
+            @include grid(2, 10rem);
+        }
+        
+    }
+
+    &__left {
+        h4 {
+            @include mediaQuery {
+                text-align: justify; 
+             }
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        h2 {
+            @include mediaQuery {
+                text-align: justify; 
+             }
+            text-align: center;
+        }
+    }
+
+    button {
+        @include mediaQuery {
+            display: block;
+            @include flex (center, center);
+        }
+        text-align: center;
+        background-color: $clr-accent;
+        color: $clr-light;
+        border: 1px solid $clr-accent;
+        padding: 1rem;
+        gap: 2rem;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        margin-top: 5rem;
+       
+     }
+
+     .tns-controls {
+        @include mediaQuery {
+           @include flex(flex-start, flex-start);
+            gap: 2rem;
+            margin-top: 15rem;
+            
+        }
+        
+     }
+
+     .tns-outer {
+        @include mediaQuery {
+           padding: 0 !important;
+           margin-top: -20rem; 
+        }
+        
+    }
+
+     &__card {
+        
+        
+        @include mediaQuery {
+          @include flex (flex-start, center); 
+        }
+
+        i {
+            font-size: 2.5rem;
+            color: #636363;
+        }
+        img {
+            @include mediaQuery {
+                margin-right: -14rem;
+                
+            }
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 50%;
+            text-align: center;
+
+        }
+
+        p {
+            text-align: center;
+            margin-top: -2rem;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            @include mediaQuery {
+                text-align: start;
+            }
+            text-align: center;
+        }
+
+        h4 {
+            @include mediaQuery {
+                text-align: start;
+            }
+            text-align: center;
+            margin-top: -2rem;
+        }
+
+        &__right {
+            @include flex (center,center);
+        }
+     }
+
+
+}
+
+.join {
+    margin-top: 5rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+    rgba(1, 0, 0, 0.5)), url('/images/workout.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 65vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    &__top {
+        h2 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+    }
+
+    &__bottom {
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        button {
+            @include mediaQuery {
+                padding: 2rem 1rem;
+                font-size: 1.5rem;
+            }
+
+            width: 100%;
+            padding: 1.2rem 1rem;
+            border: 1px solid $clr-accent;
+            background: transparent;
+            transition: .5s ease;
+            color:  $clr-light;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-color: $clr-accent;
+            border-radius: 5rem;
+            @include mediaQuery {
+                width: 20%;
+            }
+            &:hover {
+                background: $clr-dark;
+                color: $clr-light;
+                border: 1px solid $clr-dark;
+            }
+        }
+    }
+
+
+
+}
+

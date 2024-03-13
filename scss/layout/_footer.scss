@@ -1,2 +1,139 @@
 @use '../abstract' as *;
 
+.footer {
+
+    &__wrapper {
+        @include mediaQuery {
+         @include flex (space-around,center); 
+         margin-top: 5rem;  
+        }
+        
+    }
+
+    &__links {
+        
+            @include mediaQuery {
+                margin-top: 6rem;  
+        
+                @include flex;
+                gap: 5rem;
+                justify-self: flex-end;
+                li, h4 {
+                    text-align: right;
+                }
+        
+                li {
+                    margin-bottom: .5rem;
+                    font-size: 1.4rem;
+                }
+            }
+    }
+    &__actions {
+        @include mediaQuery {
+            p {
+                margin-top: -1rem;
+                margin-bottom: 3rem;
+                
+            }
+        }
+       h2 {
+            color: $clr-accent;
+            font-size: 5rem;
+            text-align: justify;
+        } 
+    }
+    
+    &__connect {
+        margin-bottom: 3rem;
+        ul{
+            gap: 3rem;
+        }
+        i {
+            font-size: 3rem;
+        }
+
+        li {
+            @include mediaQuery {
+                text-align: center;
+            }
+        }
+    }
+
+    &__box {
+        margin-bottom: 3rem;
+         li {
+            @include grid(2, 1rem);
+         }
+
+         
+    }
+
+    &__contacts {
+        margin-top: 3rem;
+        margin-bottom: 4rem;
+        h4 {
+            @include mediaQuery {
+                font-size: 2rem;
+            }
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        i {
+            font-size: 2.5rem;
+            color: $clr-light;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__contact {
+        margin-bottom: 4rem;
+    }
+
+    &__app {
+        @include mediaQuery {
+            margin-left: 10rem;
+        }
+
+        margin-bottom: 3rem;
+        h4 {
+            @include mediaQuery {
+                font-size: 2rem;
+
+            }
+            font-size: 2rem;
+            
+        }
+
+        img {
+            @include mediaQuery {
+                width: 300px;
+                margin-bottom: 1rem;
+                justify-self: center;
+            }
+            width: 40%;
+            margin-bottom: 1rem;
+            justify-self: center;
+        }
+    }
+
+    &__bottom {
+        text-align: center;
+        font-size: 1.2rem;
+        padding: .5rem 0;
+        
+        
+        @include mediaQuery {
+            margin-top: 5rem;
+            @include flex(space-between, center);
+            ul {
+                @include flex(space-between, center);
+                gap: 2rem;
+            }
+        }
+    }
+}

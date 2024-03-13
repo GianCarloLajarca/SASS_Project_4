@@ -5,6 +5,10 @@
 
     --dark : #222222;
     --light : #fff;
+    --dark-blue : #171f2f;
+    --light-blue : #202837;
+
+
 
 }
 
@@ -14,6 +18,8 @@ $clr-accent: var(--accent);
 
 $clr-dark: var(--dark);
 $clr-light: var(--light);
+$clr-dark-blue: var(--dark-blue);
+$clr-light-blue : var(--light-blue);
 
 $sm: "42rem";
 $md: "92rem";
